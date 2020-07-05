@@ -8,10 +8,10 @@ async function loginHeroku() {
   const password = core.getInput('api_key');
 
   try {
-    await exec(`echo ${password} | docker login --username=${login} registry.heroku.com --password-stdin`);	
-    console.log('Logged in succefully ✅');
+    await exec(`echo ${password} | docker login --username=${login} registry.heroku.com --password-stdin`);
+    console.log('Logged in successfully ✅');
   } catch (error) {
-    core.setFailed(`Authentication process faild. Error: ${error.message}`);
+    core.setFailed(`Authentication process failed. Error: ${error.message}`);
   }
 }
 
