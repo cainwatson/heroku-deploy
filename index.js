@@ -7,12 +7,12 @@ async function loginHeroku() {
   const login = core.getInput('email');
   const password = core.getInput('api_key');
 
-  try {	
+  try {
     await exec(`echo ${password} | docker login --username=${login} registry.heroku.com --password-stdin`);	
-    console.log('Logged in succefully ✅');	
-  } catch (error) {	
-    core.setFailed(`Authentication process faild. Error: ${error.message}`);	
-  }	
+    console.log('Logged in succefully ✅');
+  } catch (error) {
+    core.setFailed(`Authentication process faild. Error: ${error.message}`);
+  }
 }
 
 async function buildPushAndDeploy() {
@@ -31,11 +31,11 @@ async function buildPushAndDeploy() {
     console.log('App Deployed successfully 🚀');
   } catch (error) {
     core.setFailed(`Something went wrong building your image. Error: ${error.message}`);
-  } 
+  }
 }
 
 /**
- * 
+ *
  * @param {string} appName - Heroku App Name
  * @returns {function}
  */
@@ -48,8 +48,8 @@ function herokuActionSetUp(appName) {
   return function herokuAction(action) {
     const HEROKU_API_KEY = core.getInput('api_key');
     const exportKey = `HEROKU_API_KEY=${HEROKU_API_KEY}`;
-  
-    return `${exportKey} heroku container:${action} web --app ${appName}` 
+
+    return `${exportKey} heroku container:${action} web --app ${appName}`;
   }
 }
 
@@ -58,4 +58,4 @@ loginHeroku()
   .catch((error) => {
     console.log({ message: error.message });
     core.setFailed(error.message);
-  })
+  });
