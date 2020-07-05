@@ -24,7 +24,7 @@ async function buildPushAndDeploy() {
   try {
     await exec(`cd ${dockerFilePath}`);
 
-    await exec(herokuAction('push') + pushOptions);
+    await exec(herokuAction('push') + ' ' + pushOptions);
     console.log('Container pushed to Heroku Container Registry ⏫');
 
     await exec(herokuAction('release'));
