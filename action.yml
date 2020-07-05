@@ -1,5 +1,5 @@
 name: 'Deploy Docker Image to Heroku App'
-author: 'Jean Carlos Taveras'
+author: 'Jean Carlos Taveras, Cain Watson'
 description: 'A simple action to build, push and deploy a Docker Image to your Heroku app.'
 inputs:
   email:
@@ -12,10 +12,10 @@ inputs:
     description: 'Your Heroku App Name'
     required: true
   dockerfile_path:
-    description: 'Dokerfile path'
-    required: true
-  options:
-    description: 'Optional build parameters'
+    description: 'Dockerfile path'
+    required: false
+  push_options:
+    description: 'Optional container:push parameters'
     required: false
 branding:
   icon: package

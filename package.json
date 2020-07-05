@@ -1,6 +1,6 @@
 {
   "name": "deploy-heroku",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A simple action to deploy container to Heroku Container Registry",
   "main": "index.js",
   "scripts": {},
@@ -21,7 +21,7 @@
     "container",
     "docker"
   ],
-  "author": "Jean Carlos Tavera",
+  "author": "Jean Carlos Tavera, Cain Watson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jctaveras/heroku-deploy/issues"
