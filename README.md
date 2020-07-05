@@ -15,19 +15,19 @@ jobs:
 
       - name: Build, Push and Deploy to Heroku
         id: heroku
-        uses: cainwatson/heroku-deploy@v3.0.0 # use the latest version of the action
+        uses: cainwatson/heroku-deploy@v3.0.0
         with:
-          email: ${{ secrets.HEROKU_EMAIL }} # your heroku email
-          api_key: ${{ secrets.HEROKU_API_KEY }} # your heroku api key
-          app_name: ${{ secrets.HEROKU_APP_NAME }} # your application name
-          dockerfile_path: '' # The path to the folder where the Dockerfile is located
-          push_options: '' # Heroku container:push options
+          email: ${{ secrets.HEROKU_EMAIL }}
+          api_key: ${{ secrets.HEROKU_API_KEY }}
+          app_name: ${{ secrets.HEROKU_APP_NAME }}
+          dockerfile_path: ''
+          push_options: ''
 ```
 
-| Variables       | Description                 | Required      |
-|:---------------:|:---------------------------:|:-------------:|
-| email           | Heroku Email Account        | ✅            |
-| api_key         | Heroku API Key              | ✅            |
-| app_name        | Heroku App Name             | ✅            |
-| dockerfile_path | Path to your Dockerfile     | ✅            |
-| push_options    | Heroku Push Options         | ❌            |
+| Variables       | Description                                     | Required      |
+|:---------------:|:-----------------------------------------------:|:-------------:|
+| email           | Heroku Email Account                            | ✅            |
+| api_key         | Heroku API Key                                  | ✅            |
+| app_name        | Heroku App Name                                 | ✅            |
+| dockerfile_path | Path to Dockerfile. Default: `'.'`.             | ❌            |
+| push_options    | Heroku `container:push` Options. Default: `''`. | ❌            |

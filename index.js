@@ -17,7 +17,7 @@ async function loginHeroku() {
 
 async function buildPushAndDeploy() {
   const appName = core.getInput('app_name');
-  const dockerFilePath = core.getInput('dockerfile_path');
+  const dockerFilePath = core.getInput('dockerfile_path') || '.';
   const pushOptions = core.getInput('push_options') || '';
   const herokuAction = herokuActionSetUp(appName);
 

@@ -40,7 +40,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(203);
+/******/ 		return __webpack_require__(250);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -63,7 +63,7 @@ module.exports = require("child_process");
 
 /***/ }),
 
-/***/ 152:
+/***/ 208:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
@@ -162,10 +162,10 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 203:
+/***/ 250:
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-const core = __webpack_require__(566);
+const core = __webpack_require__(637);
 const { promisify } = __webpack_require__(669);
 
 const exec = promisify(__webpack_require__(129).exec);
@@ -184,7 +184,7 @@ async function loginHeroku() {
 
 async function buildPushAndDeploy() {
   const appName = core.getInput('app_name');
-  const dockerFilePath = core.getInput('dockerfile_path');
+  const dockerFilePath = core.getInput('dockerfile_path') || '.';
   const pushOptions = core.getInput('push_options') || '';
   const herokuAction = herokuActionSetUp(appName);
 
@@ -230,7 +230,14 @@ loginHeroku()
 
 /***/ }),
 
-/***/ 566:
+/***/ 622:
+/***/ (function(module) {
+
+module.exports = require("path");
+
+/***/ }),
+
+/***/ 637:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
@@ -252,7 +259,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const command_1 = __webpack_require__(152);
+const command_1 = __webpack_require__(208);
 const os = __importStar(__webpack_require__(87));
 const path = __importStar(__webpack_require__(622));
 /**
@@ -456,13 +463,6 @@ function getState(name) {
 }
 exports.getState = getState;
 //# sourceMappingURL=core.js.map
-
-/***/ }),
-
-/***/ 622:
-/***/ (function(module) {
-
-module.exports = require("path");
 
 /***/ }),
 
